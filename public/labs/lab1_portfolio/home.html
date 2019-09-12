@@ -1,30 +1,63 @@
 <!DOCTYPE html>
 <html>
+<!--
+    
+First Website 
+and comment
+in html
+(comments can span multiple lines) 
+
+--> 
+<!-- This is the head --> 
+<!-- All styles and javascript go in the head --> 
     <head>
+        <meta charset="utf-8" /> 
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
-        <title>Yazmin Carrillo</title>
+        <title>Yazmin Carrillo: Personal Website</title>
         <link href="styles.css" rel="stylesheet" type="text/css">
     </head>
+<!-- Closing head --> 
+
+    <!-- This is the body --> 
+    <!-- This is where we place the content of our website --> 
     <body>
-        <header class="name">Yazmin Carrillo</header><hr width="50%"> 
-        <div class="flex-container">
-            <div><a href="/labs/lab1_portfolio/home.html"><blue>Home</blue></a></div>
-            <div><a href="/labs/lab1_portfolio/about.html">About</a></div>
-            <div><a href="/labs/lab1_portfolio/contact.html">Contact</a></div>
-        </div>
-        <div class="flex-container">
-            <img src="/labs/lab1_portfolio/Yazmin.png" alt="Yazmin">
-            <section>Hello!<br>Thank you for visiting my professional profolio site website.
-            <br><br>I am a Network Security major at California State University of Monterey Bay.
-            <br><br>Feel free to contact me!
-            <br><br>"I'm looking to expand my portfolio while I'm on top and I'm young. - Floyd Mayweather, Jr. 
-            </section>
-        </div>
-        <br><hr>
+        <header>
+            <h1 style="font-size: 46px;">Yazmin Carrillo</h1>
+        </header> 
+        <nav>
+            <hr width="50%">
+            <a href="/labs/lab1_portfolio/home.html"><blue>Home</blue></a>
+            <a href="/labs/lab1_portfolio/about.html">About</a>
+            <a href="/labs/lab1_portfolio/contact.html">Contact</a>
+        </nav>
+        <br> 
+        
+        <main>
+            <figure id="me">
+                <img style="border-radius: 15%;" src="/labs/lab1_portfolio/now-you-see-me.png" alt="cat">
+            </figure>
+            <div id="welcomeText">
+                Hello!<br>
+                <p>Thank you for visiting my professional portfolio site website.</p>
+                <p>I am a Network Security major at California State University of Monterey Bay.</p>
+                <p>Feel free to contact me!</p>
+                <br><br>
+                <em>"I'm looking to expand my portfolio while <strong>I'm on top</strong> and I'm young."</em><br>
+                 - Floyd Mayweather, Jr.
+            </div>
+        </main>
+        
+        <!-- This is the footer -->
+        <!-- The footer goes inside the body but it's optional --> 
+        
         <footer>
-            CST336: Internet Programming<br>2019&#169 Yazmin Carrillo<br>Disclaimer: The information in this webpage is fiction.
-            <br>It is used for academic purposes only. 
+            <br><hr>
+            CST336: Internet Programming<br>2019&#169 Y. Carrillo<br>
+            <strong>Disclaimer:</strong> The information in this webpage is fiction.<br>
+            It is used for academic purposes only. 
         </footer>
+        <!-- Closing footer --> 
     </body>
+    <!-- Closing body --> 
 </html>

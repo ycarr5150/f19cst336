@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Now You See It</title>
+        
+        <style>
+            .hide {
+                display: none; 
+            }
+        </style>
+    </head>
+    
+    <body>
+        <img id="see" src="/examples/js/now-you-see-me.png" />
+        
+        <div>
+            <button id="change">Hide the cat</button>
+            <button id="moon">Send the cat to the moon</button>
+        </div>
+        
+        <script>
+            let seeImage = document.getElementById('see');
+                // console.log(document); 
+                // console.dir(document); 
+            let changeButton = document.getElementById('change');
+            // attach event listener to an object 
+            changeButton.addEventListener('click', function(e) {
+                console.log('clicked with even info', e); 
+                seeImage.setAttribute('src', '/examples/js/now-you-dont.png')
+            }); 
+            
+            document
+                .getElementById('moon')
+                .addEventListener('click', function(e){
+                    seeImage.setAttribute('class', 'hide')
+                })
+            
+        </script>
+    </body>
+</html>

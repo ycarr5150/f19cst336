@@ -1,0 +1,55 @@
+header, nav, footer {
+    text-align: center; 
+} 
+a {
+    text-decoration: none; 
+    margin: 10px;
+    padding: 10px; 
+    color: black; 
+    font-family: 'Alegreya SC';
+}
+a:hover {
+    border-bottom: 2px solid; 
+}
+hr.block-line {
+    border: 10px solid black;
+}
+#csumb, #malware, #left {
+    float: left; 
+}
+#right {
+    float: right; 
+}
+hr{
+    clear:left; 
+}
+footer{
+    text-align: center; 
+    width: 85%;
+    clear: left;
+    color: black;
+    font-family: "Times New Roman";
+}
+div, main{
+    font-family: 'ABeeZee';
+    font-size: 20px; 
+    padding: 10px; 
+}
+.orange{
+    color: orange; 
+}
+.red{
+    color: red; 
+}
+header {
+    font-size: 18px; 
+}
+ul {
+    margin-top: 2px;
+    column-count: 2; 
+    column-gap: 50px; 
+}
+.title {
+    font-family: 'Acme';
+    font-size: 25px;
+}
