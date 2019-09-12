@@ -1,0 +1,4 @@
+The two new html tags that I used were: 
+- <b> for bold text 
+- <details> defines additional details that the user can view or hide
+- <ins> defines a text that has been inserted into a document
