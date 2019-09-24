@@ -5,6 +5,11 @@
         <title>US Quiz</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            #battles {
+                text-align: center; 
+            }
+        </style>
     </head>
     
     <body class="text-center">
@@ -15,7 +20,6 @@
         <input type="text" id="q1"> 
         <br><br>
         <div id="q1Feedback"></div>
-        
         
         <!-- QUESTION 2 --> 
         <h3><span id="markImg2"></span>What is the longest river?</h3>
@@ -51,13 +55,55 @@
         <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3">
         <br><br>
         <div id="q5Feedback"></div>
-        <br>
         
+        <!-- QUESTION 6 --> 
+        <h3><span id="markImg6"></span>When was the Declaration of Independence signed?</h3>
+        <input type="date" id="q6">
+        <br><br>
+        <div id="q6Feedback"></div>
+        
+        <!-- QUESTION 7 --> 
+        <h3><span id="markImg7"></span>What year was the attack on Pearl Harbor?</h3>
+        <input type="number" id="q7"> 
+        <br><br>
+        <div id="q7Feedback"></div>
+        
+        <!-- QUESTION 8  -->
+        <h3><span id="markImg8"></span>Put the list of events in order.</h3>
+        <div id="q8Choices"></div>
+        <br>
+        <div id="q8Feedback"></div> 
+        
+        <!-- OLD QUESTION 8  
+        <h3><span id="markImg8"></span>Put the list of events in order.</h3>
+        <h5>Battle of Gettysberg<select id="gettysberg">
+        <option value="one">1</option>
+        <option value="two">2</option>
+        <option value="three">3</option>
+        </select></h5>
+        
+        <h5>Battle of Little Big Horn<select id="littleBig">
+        <option value="one">1</option>
+        <option value="two">2</option>
+        <option value="three">3</option>
+        </select></h5>
+        
+        <h5>Battle of New Orleans<select id="newOrleans">
+        <option value="one">1</option>
+        <option value="two">2</option>
+        <option value="three">3</option>
+        </select></h5>
+        
+        <br>
+        <div id="q8Feedback"></div> -->
+         
+         
         <!-- SUBMIT AND FINAL SCORE --> 
+        <br>
         <h3 id="validationFdbk" class="bg-danger text-white"></h3>
         <button class="btn btn-outline-success">Submit Quiz</button>
         <br><br>
-        <h2 id="totalScore" class="text-info"></h2>
+        <h2 id="totalScore"></h2>
         
         
         <!-- SCRIPTS --> 
@@ -72,116 +118,7 @@
             crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script>
-        
-        <!-- SCRIPTS --> 
-        <script>
-            $(document).ready(function() {
-            // GLOBAL VARIABLS 
-                var score = 0; 
-                
-            // EVENT LISTENERS
-                // SUBMIT QUIZ BUTTON 
-                $("button").on("click", gradeQuiz); 
-                
-                // QUESTION 5 IMAGES 
-                $(".q5Choice").on("click", function() {
-                    $(".q5Choice").css("background", "");
-                    $(this).css("background", "rgb(255, 255, 0)");
-                }); 
-                
-                displayQ4Choices(); 
-                
-            // FUNCTIONS
-                function displayQ4Choices() {
-                    let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"]; 
-                    q4ChoicesArray = _.shuffle(q4ChoicesArray); 
-                    
-                    for (let i = 0; i < q4ChoicesArray.length; i++) {
-                        $("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}" 
-                        value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
-                    }
-                } // displays q4 choices 
-                
-                function isFormValid() {
-                    let isValid = true; 
-                    if ($("#q1").val() === "") {
-                        isValid = false; 
-                        $("#validationFdbk").html("Question 1 was not answered"); 
-                    }
-                    return isValid; 
-                } // checks to see if q1 was answered 
-                
-                function rightAnswer(index) {
-                    $(`#q${index}Feedback`).html("Correct!!"); 
-                    $(`#q${index}Feedback`).attr("class", "bg-success text-white"); 
-                    $(`#markImg${index}`).html("<img src='img/checkmark.png' alt='checkmark'>"); 
-                    score += 20; 
-                } 
-                
-                function wrongAnswer(index) {
-                    $(`#q${index}Feedback`).html("Incorrect!!"); 
-                    $(`#q${index}Feedback`).attr("class", "bg-warning text-white"); 
-                    $(`#markImg${index}`).html("<img src='img/xmark.png' alt='xmark'>"); 
-                }
-                
-                function gradeQuiz() {
-                    $("#validationFdbk").html(""); //resets validation feedback 
-                    
-                    if (!isFormValid()) {
-                        return; 
-                    }
-                    
-                    // variables
-                    score = 0; 
-                    let q1Response = $("#q1").val().toLowerCase(); 
-                    let q2Response = $("#q2").val();
-                    let q4Response = $("input[name=q4]:checked").val(); 
-                    
-                    // QUESTION 1
-                    if (q1Response === "sacramento") {
-                        rightAnswer(1);  
-                    } else {
-                        wrongAnswer(1); 
-                    }
-                    
-                    // QUESTION 2
-                    if(q2Response === "mo") {
-                        rightAnswer(2); 
-                    } else {
-                        wrongAnswer(2); 
-                    }
-                    
-                    // QUESTION 3
-                    if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked")
-                    && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
-                        rightAnswer(3); 
-                    } else {
-                        wrongAnswer(3); 
-                    }
-                    
-                    // QUESTION 4
-                    if (q4Response === "Rhode Island") {
-                        rightAnswer(4);
-                    } else {
-                        wrongAnswer(4); 
-                    }
-                    
-                    // QUESTION 5
-                    if ($("#seal2").css("background-color") == "rgb(255, 255, 0)") {
-                        rightAnswer(5);
-                    } else {
-                        wrongAnswer(5); 
-                    }
-                    
-                    // TOTAL SCORE 
-                    if (score >= 80) {
-                        $("#totalScore").html(`Total Score: ${score}`).css({'color':'green'});   
-                    } else {
-                        $("#totalScore").html(`Total Score: ${score}`).css({'color':'red'});
-                    }
-                }
-            }); // ready
-        </script>
+        <script SRC="js/functions.js"> </script>
 
     </body>
 </html>
