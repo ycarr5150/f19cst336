@@ -5,14 +5,9 @@
         <title>US Quiz</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <style>
-            #battles {
-                text-align: center; 
-            }
-        </style>
     </head>
     
-    <body class="text-center">
+    <body class="text-center" style="background-color: lightgrey">
         <h1 class="jumbotron">US Geography Quiz</h1>
         
         <!-- QUESTION 1 --> 
@@ -68,35 +63,11 @@
         <br><br>
         <div id="q7Feedback"></div>
         
-        <!-- QUESTION 8  -->
+        <!-- QUESTION 8 -->
         <h3><span id="markImg8"></span>Put the list of events in order.</h3>
         <div id="q8Choices"></div>
         <br>
         <div id="q8Feedback"></div> 
-        
-        <!-- OLD QUESTION 8  
-        <h3><span id="markImg8"></span>Put the list of events in order.</h3>
-        <h5>Battle of Gettysberg<select id="gettysberg">
-        <option value="one">1</option>
-        <option value="two">2</option>
-        <option value="three">3</option>
-        </select></h5>
-        
-        <h5>Battle of Little Big Horn<select id="littleBig">
-        <option value="one">1</option>
-        <option value="two">2</option>
-        <option value="three">3</option>
-        </select></h5>
-        
-        <h5>Battle of New Orleans<select id="newOrleans">
-        <option value="one">1</option>
-        <option value="two">2</option>
-        <option value="three">3</option>
-        </select></h5>
-        
-        <br>
-        <div id="q8Feedback"></div> -->
-         
          
         <!-- SUBMIT AND FINAL SCORE --> 
         <br>
@@ -104,6 +75,10 @@
         <button class="btn btn-outline-success">Submit Quiz</button>
         <br><br>
         <h2 id="totalScore"></h2>
+        <h1 id="winner"></h1>
+        <br>
+        <h2 id="scoreHistory"></h2>
+        <br>
         
         
         <!-- SCRIPTS --> 
