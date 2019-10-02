@@ -41,30 +41,81 @@
 
 footer {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
 }
 
-.item-seciton {
-    width: 66.66%;
+.main-section {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    font-size: 18px;
+}
+
+.item-section {
+    flex-basis: 1000px;
+    background-color: #f1f1f1;
+    margin: 30px;
+    margin-top: 5px;
+    padding: 20px; 
 }
 
 .total-section {
-    width: 33.33%; 
+    flex-grow: 2;
+    background-color: #f1f1f1;
+    margin: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 20px;
+    font-size: 14px;
 }
 
-#pajamas-pic {
-    width: 75%;
-    height: 80%;
-    
-}
-
-#pants-pic {
-    width: 5%;
-    height: 5%;
-}
-
-.item-one {
+.item-one, .item-two {
+    width: 100%;
     display: flex;
+    flex-direction: row;
+}
+
+.item-text {
+    flex-basis: 600px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.item-qt {
+    flex-basis: 200px;
+}
+
+.item-total {
+    flex-basis: 200px;
+}
+
+.item-one > div, .item-two > div {
+    background-color: lightblue;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#item-pictures {
+    width: 75px;
+    height: 115px;
+}
+
+#coupon-section {
+    border-radius: 10px;
+    font-size: 12px;
+    padding-left: 5px;
+    color: grey;
+}
+
+#submit-button-1, #submit-button-2 {
+    border-radius: 15px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+}
+
+#subtotal, #taxes, #shipping, #total {
+    text-align: right;
 }

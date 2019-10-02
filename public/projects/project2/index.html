@@ -20,6 +20,7 @@
             <span>Free Shipping Over $99 </span>
             <a href="#" id="details-tooltip" data-toggle="tooltip" data-placement="bottom" title="No Details Yet :)">See Details</a>
         </div>
+        
         <div class="store-logo">
             <div class="big-item">
                 <img src="images/cool_clothes.png" id="cool-clothes-logo" alt="cool clothes logo"> 
@@ -28,35 +29,61 @@
                 <img src="images/shopping_cart.png" id="shopping-cart-logo" alt="shopping cart logo"> 
             </div>
         </div>
-    </header>
+    </header> <hr>
     
-    <article>
+    <article class="main-section">
         <div class="item-section">
             <div class="item-one">
-                <div>
-                    <img src="images/pajamas.png" id="pajamas-pic" alt="pajamas picture"> 
+                <div> <img src="images/pajamas.png" id="item-pictures" alt="pajamas picture">  </div>
+                <div class="item-text">Ambrielle Womens Sleeveless 2-pc. Shorts Pajama Set</div>
+                <div class="item-qt">
+                    Quantity: <input type="text" id="qty-item1" size="4" style="text-align:center;" value="1">
                 </div>
-                <div>
-                    text
-                </div>
-                <div>
-                    more text
-                </div>
+                <div class="item-total" style="font-size: 16px;">Total: <b style="font-size:22px;" id="item1-total">$28.00</b> </div>
             </div>
+            
+            <hr>
+            
             <div class="item-two">
-                <img src="images/pants.png" id="pants-pic" alt="pants picture"> 
+                <div> <img src="images/pants.png" id="item-pictures" alt="pants picture">  </div>
+                <div class="item-text">a.n.a Womens Mid Rise Slim Jeggings</div>
+                <div class="item-qt">
+                    Quantity: <input type="text" id="qty-item2" size="4" style="text-align:center;" value="1">
+                </div>
+                <div class="item-total" style="font-size: 16px;">Total: <b style="font-size:22px;" id="item2-total">$23.00</b> </div>
             </div>
-        </div>
-        <div class="total-section">
             
         </div>
-
+        
+        <div class="total-section">
+            <input type="text" size="25" id="coupon-section" value="Enter Coupon Code"> 
+            <input type="submit" id="submit-button-1" value="Apply" /><hr>
+            
+            <div class="shipping-section">
+                Shipping & Handling<br>
+                <input type="radio" name="delivery" id="nextDayDelivery"> Next Day Delivery: $10.00<br>
+                <input type="radio" name="delivery" id="regularShipping"> Regular Shipping (5-8 days): $5.00
+            </div><hr>
+            
+            <div class="subtotal-section">
+                Subtotal: <span id="subtotal">$51.00</span><br>
+                <span id="discount"></span>
+                <span id="sub-discount"></span>
+                Taxes: <span id="taxes">$5.10</span><br>
+                Shipping: <span id="shipping">$---</span><br><hr>
+                <b style="font-size:22px;"> Total: <span id="total">$56.10</span></b>
+                <input type="submit" id="submit-button-2" value="Submit" /><br>
+                <span id="feedback-message"></span>
+            </div>
+        </div>
     </article>
     
     <footer>
-        <br>CST336: Internet Programming<br>2019&#169 Yazmin Carrillo<br>Disclaimer: The information in this webpage is fiction.
+        <hr><br>CST336: Internet Programming<br>2019&#169 Yazmin Carrillo<br>Disclaimer: The information in this webpage is fiction.
         <br>It is used for academic purposes only.
     </footer>
+    
+    <script SRC="js/functions.js"> </script>
 </body>
 
 </html>
