@@ -1,0 +1,29 @@
+#youtube-video {
+    display: block;
+    margin: 0 auto;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons>input {
+    background-color: grey;
+    font-size: 22px;
+    color: white;
+    padding: 10px;
+}
+
+#added {
+    text-align: center;
+    font-size: 18px;
+}
+
+#question {
+    text-align: center;
+    font-size: 22px;
+}
+
+.answer-question {
+    text-align: center;
+}

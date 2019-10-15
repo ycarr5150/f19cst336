@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Midterm: Youtube Video</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <br>
+    <iframe id="youtube-video" width="660" height="415" src="https://www.youtube.com/embed/sB2T0sQBUdw" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe><br>
+
+    <div class="buttons">
+        <input type="submit" id="comment-button" value="See Comments" />
+        <input type="submit" id="question-button" value="Answer Question" />
+        <input type="image" src="imgs/blue-up.png" alt="blue-up" width="48" height="48" id="like-thumb" />
+        <input type="image" src="imgs/grey-up.png" alt="grey-up" width="48" height="48" id="unlike-thumb" />
+        <span id="likes"></span>
+        <input type="image" src="imgs/blue-down.png" alt="blue-down" width="48" height="48" id="dislike-thumb" />
+        <input type="image" src="imgs/grey-down.png" alt="grey-down" width="48" height="48" id="undislike-thumb" />
+        <span id="dislikes"></span>
+    </div><br>
+    
+    <div class="comment-section">
+        <div id="added"></div>
+    </div>
+
+    <div class="answer-question">
+        <select id="question" style="visibility: hidden;">
+            <option value="">Select One</option>
+            <option value="otters">The life of otters</option>
+            <option value="csumb">CSUMB</option>
+            <option value="java">Javascript programming</option>
+            <option value="sunmoon">The Sun and Moon</option>
+        </select><br>
+        <span id="feedback"></span>
+    </div>
+
+    <script SRC="js/function.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+
+</html>

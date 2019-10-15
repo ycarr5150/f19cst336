@@ -1,9 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Practice Exam</title>
-    </head>
-    <body>
 
-    </body>
+<head>
+    <title>CST336 Midterm Exam Practice</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1 class="jumbotron"> End-of-Summer Sale! </h1>
+    <h2> Cart </h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th> Quantity </th>
+            <th>Total</th>
+        </tr>
+
+        <tr>
+            <td id="name"></td>
+            <td id="price"></td>
+            <td><input type="text" id="quantity" size="5" value="1"></td>
+            <td id="itemTotal"></td>
+        </tr>
+        
+        <tr>
+            <td>Discount</td>
+            <td></td>
+            <td></td>
+            <td id="discountAmount"></td>
+        </tr>
+
+        <tr>
+            <td>Shipping</td>
+            <td></td>
+            <td></td>
+            <td id="shippingAmount"></td>
+        </tr>
+
+        <tr>
+            <td>Subtotal</td>
+            <td></td>
+            <td></td>
+            <td id="subtotalAmount"> </td>
+        </tr>
+
+        <tr>
+            <td>Tax (10%)</td>
+            <td></td>
+            <td></td>
+            <td id="taxAmount"></td>
+        </tr>
+
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td id="totalAmount"></td>
+        </tr>
+    </table>
+    
+    <br><br>
+
+    <strong>Promo Code: </strong> <input type="text" id="discountCode">
+    <input type="submit" id="discountButton" value="Apply" />
+    <span id="dicountText"></span>
+
+    <h3>Shipping & handling</h3>
+    <select id="shipping"> 
+        <option value="">Select One</option>
+        <option value="nextDay">Next-day Delivery: $25.00</option>
+        <option value="threeDay">Three-day Delivery: $20.00</option>
+        <option value="regular">Regular Delivery: $7.00</option>
+    </select>
+
+    <script SRC="js/functions.js"> </script>
+</body>
+
 </html>
