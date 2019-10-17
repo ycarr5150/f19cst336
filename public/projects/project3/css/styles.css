@@ -28,3 +28,7 @@ h1 {
 #header:hover {
     text-decoration: none;
 }
+
+.hide-table {
+    visibility: hidden; 
+}

@@ -13,7 +13,13 @@
             weather  from an existing Web API based on a location entered </p>
         <h4>Please enter zipcode: <input type=text id="zipcode"> 
             <button id="submit">GO</button></h4>
-        <span id="display-weather"></span>
+        <div class="display-information">
+            <span id="location"></span>
+            <tr class="hide-table">
+                <th>Humidity:</th>
+                <td id="humidity"></td>
+            </tr>
+        </div>
 
         <script SRC="js/functions.js"></script>
         <script src="https://apis.google.com/js/client.js?onload=init"></script>

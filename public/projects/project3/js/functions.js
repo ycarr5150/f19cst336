@@ -17,6 +17,8 @@ function updateWeather() {
         dataType: "json",
         success: function(result, status) {
             console.log(result); 
+            $("#location").html(`Latitude: ${result.coord.lat}, Longitude: ${result.coord.lon}`); 
+            $("#humidity").append(result.main.humidity); 
         }
     });
 }
