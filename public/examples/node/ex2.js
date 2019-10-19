@@ -10,7 +10,8 @@ const newable = require('./includes/newable.js');
 
 console.log(newable);                               // prints out the object    
 newable.function();                                 // runs the function 
-newable.newfunction = function() {                  // creates a new function, can create a new variable 
+
+newable.newfunction = function() {                  // creates a new function (can create a new variable) 
     console.log("does this work"); 
 }
 
