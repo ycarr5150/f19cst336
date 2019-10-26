@@ -14,7 +14,7 @@ function updatingTotals() {
     
     if (discount != 1) {
         subtotal = subtotal * discount; 
-        $("#sub-discount").html(`NEW SUBTOTAL: $${subtotal.toFixed(2)}<br>`)   
+        $("#sub-discount").html(`NEW SUBTOTAL: $${subtotal.toFixed(2)}<br>`); 
     }
     
     tax = subtotal * .10; 

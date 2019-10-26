@@ -6,4 +6,4 @@ const substitute = require('./substitute');
 app.use('/', randomNumber); 
 app.use('/', substitute);
 
-app.listen(8080)
+app.listen(8080); 
