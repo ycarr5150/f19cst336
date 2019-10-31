@@ -1,6 +1,5 @@
 body {
     width: 100%; 
-    margin-left: 20px; 
     text-align: center;
 }
 
@@ -8,6 +7,28 @@ footer {
     text-align: center;
 }
 
-h1 {
+#title {
     text-align: center; 
+    background-color: lightgrey; 
+    padding: 15px;
+}
+
+#welcomePage {
+    background-color: lightblue;
+}
+
+#textBox {
+    background-color: white;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#text {
+    font-size: 18px;
+}
+
+#goBack {
+    color: blue;
 }

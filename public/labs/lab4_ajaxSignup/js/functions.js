@@ -32,6 +32,13 @@ $("#zip").on("change", function() {
             $("#city").html(`City: ${result.city}<br>`);
             $("#latitude").html(`Latitude: ${result.latitude}<br>`);
             $("#longitude").html(`Longitude: ${result.longitude}<br>`);
+            if(!result) {
+                $("#error").html(" Zip code not found").css("color", "red"); 
+            }
+            else{
+                $("#error").html(""); 
+            }
+            console.log(result); 
         }
     }); // ajax
 }); // zip 
@@ -44,9 +51,9 @@ $("#state").on("change", function() {
         dataType: "json",
         data: { "state": $("#state").val() },
         success: function(result, status) {
-            $("#county").html("<option> Select One: </option>");
+            $("#county").html(`<option value="">Select One</option>`);
             for (let i = 0; i < result.length; i++) {
-                $("#county").append("<option>" + result[i].county + "</option>");
+                $("#county").append(` <option value=${result[i].county}>${result[i].county} </option> `);
             }
         }
     }); // ajax
@@ -76,6 +83,7 @@ $("#username").on("change", function() {
 $("#signupForm").on("submit", function(e) {
     if (!isFormValid()) {
         e.preventDefault();
+        $("#errorText").html("You are missing information").css("color", "red"); 
     }
 });
 
@@ -87,7 +95,7 @@ function isFormValid() {
 
     if ($("#username").val().length == 0) {
         isValid = false;
-        $("#usernameError").html("Username is required!");
+        $("#usernameError").html("Username is required.").css("color", "red");
     }
 
     if ($("#password").val() != $("#passwordAgain").val()) {
@@ -100,6 +108,26 @@ function isFormValid() {
         $("#passwordAgainError").html("Password must be at least 6 characters long!");
         isValid = false;
     }
+    
+    if ($("#password").val() == $("#passwordAgain").val() && $("#password").val().length >= 6) {
+        $("#passwordAgainError").html(""); 
+    }
+    
+    if(!checkingText()) {
+        isValid = false; 
+    }
 
     return isValid;
+}
+
+function checkingText() {
+    if ( $("#fName").val() == "" || $("#lName").val() == "" || $("#gender").val() == "" ) {
+        return false; 
+    }
+    
+    if ( $("#zip").val() == "" || $("#state").val() == "" || $("#county").val() == "" ) {
+        return false; 
+    }
+    
+    return true; 
 }

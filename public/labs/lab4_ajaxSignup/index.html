@@ -10,24 +10,24 @@
 </head>
 
 <body>
-    <h1>Welcome to my Website~</h1>
+    <h1 id="title">Welcome to my Website~</h1>
     <hr>
     <h2> Sign Up </h2>
     <form id="signupForm" method="get" action="welcome.html">
-        First Name: <input type="text" name="fName"><br> 
-        Last Name: <input type="text" name="lName"><br> 
+        First Name: <input type="text" id="fName"><br> 
+        Last Name: <input type="text" id="lName"><br> 
         
         Gender: 
-        <input type="radio" name="gender" value="m"> Male
-        <input type="radio" name="gender" value="f"> Female<br><br> 
+        <input type="radio" id="gender" value="m"> Male
+        <input type="radio" id="gender" value="f"> Female<br><br> 
         
-        Zip Code: <input type="text" name="zip" id="zip"><br> 
+        Zip Code: <input type="text" id="zip" id="zip"><span id="error"></span><br> 
         <span id="city"></span>
         <span id="latitude"></span>
         <span id="longitude"></span>
         
         State: <select id="state" name="state"></select><br> 
-        Select a County: <select id="county"></select><br><br> 
+        Select a County: <select id="county" name="county"></select><br><br> 
         
         Desired Username: <input type="text" id="username" name="username"><br>
         <span id="usernameError"></span><br> 
@@ -35,7 +35,8 @@
         Password Again: <input type="password" id="passwordAgain"><br>
         <span id="passwordAgainError"></span><br>
 
-        <input type="submit" value="Sign Up!">
+        <input type="submit" value="Sign Up!"> <br> 
+        <span id="errorText"></span>
     </form>
 
     <hr>
