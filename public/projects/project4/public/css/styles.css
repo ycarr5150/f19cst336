@@ -1,6 +1,7 @@
 body {
     background-color: #CBE2F6;
     text-align: center;
+    font-family: "Lucida Grande";
 }
 
 ul {
@@ -35,21 +36,13 @@ li:last-child {
     border-right: none;
 }
 
-#text {
-    font-size: 18px;
-}
-
-.navBackground {
-    background-color: lightblue;
-    padding: 10px;
-}
-
-#underline {
+#title {
     width: 30%;
     border: 1px solid black;
 }
 
-#readMoreButton, a:visited {
+#readMoreButton,
+a:visited {
     background-color: #333;
     color: white;
     padding: 14px 25px;
@@ -57,8 +50,87 @@ li:last-child {
     text-decoration: none;
     display: inline-block;
     border-radius: 20px;
+    font-family: "Lucida Grande";
 }
 
 footer {
     font-size: 14px;
+    font-family: "Times";
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 150px 10px 150px;
+}
+
+.flex-container>div {
+    margin: 10px;
+    /* top right bottom left*/
+    padding: 20px;
+    text-align: center;
+}
+
+#text {
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 15px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: none;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
+}
+
+.col-25 {
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }

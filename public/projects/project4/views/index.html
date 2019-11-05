@@ -1,12 +1,21 @@
 <% include partials/header.ejs %> 
     <h2>Welcome to my <br>e-Portfolio!</h2>
-    <hr id="underline">
+    <hr id="title">
     
-    <p id="text">This website was made in correspondence to CST 336 - Internet Programming (Fall 2019). 
-    <br>Click down below to read more about me or up above to contact me.</p><br>
+    <div class="flex-container"> 
+        <div>
+            <img src="/img/cat.png" alt="Cat">
+        </div>
+        <div>
+            <p id="text">
+                Thank you for visiting my website.<br>
+                This website was made in correspondence to<br> CST 336 - Internet Programming (Fall 2019). <br><br>
+                Click down below to read more about me or up above to contact me.
+            </p><br>
+            <a id="readMoreButton" href="/about">Read More</a>
+        </div>
+    </div>
     
-    <a id="readMoreButton" href="/about">Read More</a>
-    
-    <p id="text"><i>"I'm looking to expand my portfolio while I'm on top and I'm young."</i>
-    <br>- Floyd Mayweather Jr. </p>
+    <p id="text"><i> <%= quote %> </i>
+    <br><%= person %> </p>
 <% include partials/footer.ejs %> 
