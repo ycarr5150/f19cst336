@@ -22,3 +22,14 @@ button:hover {
     background-color: #008CBA;
     color: white;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container>div {
+    margin: 10px;
+    padding: 20px;
+    text-align: center; 
+}

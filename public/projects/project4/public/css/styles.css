@@ -43,3 +43,22 @@ li:last-child {
     background-color: lightblue;
     padding: 10px;
 }
+
+#underline {
+    width: 30%;
+    border: 1px solid black;
+}
+
+#readMoreButton, a:visited {
+    background-color: #333;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+footer {
+    font-size: 14px;
+}
