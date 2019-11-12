@@ -9,7 +9,7 @@ const request = require('request');
 app.get("/", async function(req, res) {
     let parsedData = await getImages("otters");
     let randomNumbers = new Array(); 
-    randomNumbers = getRandomNumbers(parsedData.hits.length); 
+    randomNumbers = getRandomNumbers(parsedData.hits.length, 4); 
     
     res.render("index", { 
         "image1": parsedData.hits[randomNumbers[0]].largeImageURL, 
@@ -23,21 +23,33 @@ app.get("/", async function(req, res) {
 app.get("/results", async function(req, res) {
     //console.dir(req);
     let keyword = req.query.keyword; //gets the value that the user typed in the form using the GET method
-    let parsedData = await getImages(keyword);
-    res.render("results", { "images": parsedData });
+    keyword = keyword.replace(/\s+/g, "%20");
+    let orientation = req.query.orientation; 
+    console.log(orientation); 
+    let parsedData = await getImages(keyword, orientation);
+    let randomNumbers = new Array(); 
+    randomNumbers = getRandomNumbers(parsedData.hits.length, 7); 
+    
+    res.render("results", { 
+        "image1": parsedData.hits[randomNumbers[0]].largeImageURL, 
+        "image2": parsedData.hits[randomNumbers[1]].largeImageURL, 
+        "image3": parsedData.hits[randomNumbers[2]].largeImageURL, 
+        "image4": parsedData.hits[randomNumbers[3]].largeImageURL, 
+        "image5": parsedData.hits[randomNumbers[4]].largeImageURL, 
+        "image6": parsedData.hits[randomNumbers[5]].largeImageURL, 
+        "image7": parsedData.hits[randomNumbers[6]].largeImageURL, 
+    });
 }); //results route
 
 //Returns all data from the Pixabay API as JSON format
-function getImages(keyword) {
+function getImages(keyword, orientation) {
     return new Promise(function(resolve, reject) {
-        request('https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q=' + keyword,
+        request('https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q=' + keyword 
+        + "&orientation=" + orientation,
             function(error, response, body) {
                 if (!error && response.statusCode == 200) { //no issues in the request
                     let parsedData = JSON.parse(body); //converts string to JSON
                     resolve(parsedData);
-                    //let randomIndex = Math.floor(Math.random() * parsedData.hits.length);
-                    //res.send(`<img src='${parsedData.hits[randomIndex].largeImageURL}'>`);
-                    //res.render("index", {"image":parsedData.hits[randomIndex].largeImageURL}); 
                 } else {
                     reject(error);
                     console.log(response.statusCode);
@@ -47,10 +59,10 @@ function getImages(keyword) {
     });
 }
 
-function getRandomNumbers(totalHits) {
+function getRandomNumbers(totalHits, size) {
     var randomNumber = new Array(); 
                 
-    while(randomNumber.length != 4) {
+    while(randomNumber.length != size) {
         let previous = false; 
         let number = Math.floor(Math.random() * totalHits); 
                     

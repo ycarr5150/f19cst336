@@ -11,18 +11,18 @@
         <h1> Pixabay Search (Express Version) </h1><br> 
         <form action="/results" method="GET">
             Keyword: <input type="text" name="keyword"><br><br>
-            Orientation: <select id="orientation">
+            Orientation: <select name="orientation" id="orientation">
                 <option value="">Select One</option>
                 <option value="horizontal">Horizontal</option>
                 <option value="vertical">Vertical</option>
             </select>
-            <button> Search! </button>
-            <hr>
+            <button> Search! </button> <hr>
         </form> <br>
         
         <img src='<%= image1 %>' width='250'>
         <img src='<%= image2 %>' width='250'>
         <img src='<%= image3 %>' width='250'>
         <img src='<%= image4 %>' width='250'>
+        
     </body>
 </html>
