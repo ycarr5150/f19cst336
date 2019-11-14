@@ -10,7 +10,7 @@
         <h1> Pixabay Search Results </h1><br>
         <form action="/results">
             Keyword: <input type="text" name="keyword"><br><br>
-            Orientation: <select id="orientation">
+            Orientation: <select name="orientation" id="orientation">
                 <option value="">Select One</option>
                 <option value="horizontal">Horizontal</option>
                 <option value="vertical">Vertical</option>
@@ -19,13 +19,22 @@
             <hr>
         </form> <br>
         
-        <img src='<%= image1 %>' width='250'>
-        <img src='<%= image2 %>' width='250'>
-        <img src='<%= image3 %>' width='250'>
-        <img src='<%= image4 %>' width='250'><br><br>
-        <img src='<%= image5 %>' width='250'>
-        <img src='<%= image6 %>' width='250'>
-        <img src='<%= image7 %>' width='250'>
+        <span id="padding">Likes: <%= image1.likes %> </span>
+        <span id="padding">Likes: <%= image2.likes %> </span>
+        <span id="padding">Likes: <%= image3.likes %> </span>
+        <span id="padding">Likes: <%= image4.likes %> </span><br>
+        <img src='<%= image1.largeImageURL %>' width='250'>
+        <img src='<%= image2.largeImageURL %>' width='250'>
+        <img src='<%= image3.largeImageURL %>' width='250'>
+        <img src='<%= image4.largeImageURL %>' width='250'><br><br>
+        Likes: <%= image5.likes %> 
+        Likes: <%= image6.likes %> 
+        Likes: <%= image7.likes %> <br>
+        <img src='<%= image5.largeImageURL %>' width='250'>
+        <img src='<%= image6.largeImageURL %>' width='250'>
+        <img src='<%= image7.largeImageURL %>' width='250'>
+        <br>
         
+        <script SRC="js/functions.js"></script>
     </body>
 </html>

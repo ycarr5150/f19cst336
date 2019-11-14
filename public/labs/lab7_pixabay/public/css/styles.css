@@ -23,13 +23,6 @@ button:hover {
     color: white;
 }
 
-.flex-container {
-    display: flex;
-    justify-content: center;
-}
-
-.flex-container>div {
-    margin: 10px;
-    padding: 20px;
-    text-align: center; 
+#padding {
+    padding: 0px 10px 0px 200px;
 }

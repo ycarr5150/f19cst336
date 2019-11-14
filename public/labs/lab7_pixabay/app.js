@@ -31,13 +31,13 @@ app.get("/results", async function(req, res) {
     randomNumbers = getRandomNumbers(parsedData.hits.length, 7); 
     
     res.render("results", { 
-        "image1": parsedData.hits[randomNumbers[0]].largeImageURL, 
-        "image2": parsedData.hits[randomNumbers[1]].largeImageURL, 
-        "image3": parsedData.hits[randomNumbers[2]].largeImageURL, 
-        "image4": parsedData.hits[randomNumbers[3]].largeImageURL, 
-        "image5": parsedData.hits[randomNumbers[4]].largeImageURL, 
-        "image6": parsedData.hits[randomNumbers[5]].largeImageURL, 
-        "image7": parsedData.hits[randomNumbers[6]].largeImageURL, 
+        "image1": parsedData.hits[randomNumbers[0]], 
+        "image2": parsedData.hits[randomNumbers[1]], 
+        "image3": parsedData.hits[randomNumbers[2]], 
+        "image4": parsedData.hits[randomNumbers[3]], 
+        "image5": parsedData.hits[randomNumbers[4]], 
+        "image6": parsedData.hits[randomNumbers[5]], 
+        "image7": parsedData.hits[randomNumbers[6]], 
     });
 }); //results route
 
