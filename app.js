@@ -54,9 +54,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//module.exports = app;
+module.exports = app;
 
-// server listener 
-app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Running Express Server..."); 
-});
+// // server listener 
+// app.listen(process.env.PORT, process.env.IP, function() {
+//     console.log("Running Express Server..."); 
+// });
