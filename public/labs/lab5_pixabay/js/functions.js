@@ -26,6 +26,7 @@ function searchForImages() {
                 $("#error-message").html("There are no search results available.<br>Please change your search.").css("color", "red");
             } else {
                 $("#display").html(""); 
+                $("#error-message").html("");
                 
                 var randomNumber = new Array(); 
                 
