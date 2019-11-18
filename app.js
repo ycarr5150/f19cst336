@@ -5,13 +5,13 @@ var logger = require('morgan');
 
 var express = require('express');
 var app = express();
+app.engine('html', require('ejs').renderFile); 
+app.use(express.static("public"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.engine('html', require('ejs').renderFile); 
-app.use(express.static("public"));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -54,9 +54,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//module.exports = app;
 
 // server listener 
-// app.listen(process.env.PORT, process.env.IP, function() {
-//     console.log("Running Express Server..."); 
-// });
+app.listen(process.env.PORT, process.env.IP, function() {
+    console.log("Running Express Server..."); 
+});
