@@ -8,7 +8,7 @@ router.get("/", async function(req, res) {
     let randomNumbers = new Array(); 
     randomNumbers = getRandomNumbers(parsedData.hits.length, 4); 
     
-    res.render("../public/labs/lab7a_pixabay/views/index.ejs", { 
+    res.render("../public/labs/lab7_pixabay/views/index.ejs", { 
         "image1": parsedData.hits[randomNumbers[0]], 
         "image2": parsedData.hits[randomNumbers[1]], 
         "image3": parsedData.hits[randomNumbers[2]], 
@@ -27,7 +27,7 @@ router.get("/results", async function(req, res) {
     let randomNumbers = new Array(); 
     randomNumbers = getRandomNumbers(parsedData.hits.length, 7); 
     
-    res.render("../public/labs/lab7a_pixabay/views/results.ejs", { 
+    res.render("../public/labs/lab7_pixabay/views/results.ejs", { 
         "image1": parsedData.hits[randomNumbers[0]], 
         "image2": parsedData.hits[randomNumbers[1]], 
         "image3": parsedData.hits[randomNumbers[2]], 
