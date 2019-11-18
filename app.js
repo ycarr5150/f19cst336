@@ -27,16 +27,16 @@ var usersRouter = require('./routes/users');
 var basicRouter = require('./routes/basic');
 var mysqlRouter = require('./public/examples/my_sql/router'); 
 var proj4Router = require('./public/projects/project4a/router');
-//var lab7Router = require('./public/labs/lab7_pixabay/router');
-var lab9Router = require('./public/labs/lab9_/router'); 
+var lab7Router = require('./public/labs/lab7a_pixabay/router');
+var lab9Router = require('./public/labs/lab9_quotes/router'); 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/basic', basicRouter);
 app.use('/mysql', mysqlRouter); 
 app.use('/projects/project4', proj4Router); 
-//app.use('/public/labs/lab7_pixabay', lab7Router);
-app.use('/public/labs/lab9_', lab9Router); 
+app.use('/labs/lab7_pixabay', lab7Router);
+app.use('/labs/lab9_quotes', lab9Router); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

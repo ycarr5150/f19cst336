@@ -1,0 +1,16 @@
+<% include partials/header.ejs %>
+        
+        <div class="flex-container">
+          <div> Likes: <%= image1.likes %> </div>
+          <div> Likes: <%= image2.likes %> </div>
+          <div> Likes: <%= image3.likes %> </div>  
+          <div> Likes: <%= image4.likes %> </div>  
+        </div>
+        
+        <img src='<%= image1.largeImageURL %>' width='250'>
+        <img src='<%= image2.largeImageURL %>' width='250'>
+        <img src='<%= image3.largeImageURL %>' width='250'>
+        <img src='<%= image4.largeImageURL %>' width='250'>
+        <br><br>
+        
+<% include partials/footer.ejs %>
