@@ -34,7 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/basic', basicRouter);
 app.use('/mysql', mysqlRouter); 
-app.use('/projects/project4', proj4Router); 
+app.use('/public/projects/project4', proj4Router); 
 app.use('/labs/lab7_pixabay', lab7Router);
 app.use('/labs/lab9_quotes', lab9Router); 
 

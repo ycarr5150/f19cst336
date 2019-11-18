@@ -10,3 +10,6 @@ Run with node:
     
 Run with npm:
     npm start 
+    
+Looking for issues: 
+heroku logs --tail --app ycarr5150-f19cst336
