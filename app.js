@@ -26,7 +26,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var basicRouter = require('./routes/basic');
 var mysqlRouter = require('./public/examples/my_sql/router'); 
-var proj4Router = require('./public/projects/project4a/router');
+var proj4Router = require('./public/projects/project4/router');
 var lab7Router = require('./public/labs/lab7a_pixabay/router');
 var lab9Router = require('./public/labs/lab9_quotes/router'); 
 
