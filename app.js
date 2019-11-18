@@ -10,6 +10,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.engine('html', require('ejs').renderFile); 
+app.use(express.static("public"));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,7 +26,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var basicRouter = require('./routes/basic');
 var mysqlRouter = require('./public/examples/my_sql/router'); 
-//var proj4Router = require('./public/projects/project4a/router');
+var proj4Router = require('./public/projects/project4a/router');
 //var lab7Router = require('./public/labs/lab7_pixabay/router');
 var lab9Router = require('./public/labs/lab9_/router'); 
 
@@ -31,7 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/basic', basicRouter);
 app.use('/mysql', mysqlRouter); 
-//app.use('/public/projects/project4', proj4Router); 
+app.use('/projects/project4', proj4Router); 
 //app.use('/public/labs/lab7_pixabay', lab7Router);
 app.use('/public/labs/lab9_', lab9Router); 
 

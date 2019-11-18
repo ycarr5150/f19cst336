@@ -1,33 +1,28 @@
-const express = require("express"); 
+const express = require('express');
+const router = express.Router();
 var faker = require('faker');
-const app = express(); 
-app.engine('html', require('ejs').renderFile); 
-app.use(express.static("public")); 
 
 // routes
-app.get("/", function(req, res) {
-    res.render("index.html", {
+router.get("/", function(req, res) {
+    res.render("../public/projects/project4a/views/index.html", {
         "quote": "I'm looking to expand my portfolio while I'm on top and I'm young.", 
         "person": "- Floyd Mayweather Jr."
     }); 
 });
 
-app.get("/about", function(req, res) {
-    res.render("about.html", {
+router.get("/about", function(req, res) {
+    res.render("../public/projects/project4a/views/about.html", {
         "about1" : faker.lorem.paragraphs(),
         "about2" : faker.lorem.paragraphs()
     }); 
 });
 
-app.get("/resume", function(req, res) {
-    res.render("resume.html"); 
+router.get("/resume", function(req, res) {
+    res.render("../public/projects/project4a/views/resume.html"); 
 });
 
-app.get("/contact", function(req, res) {
-    res.render("contact.html"); 
+router.get("/contact", function(req, res) {
+    res.render("../public/projects/project4a/views/contact.html"); 
 });
 
-// server listener 
-app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Running Express Server..."); 
-});
+module.exports = router;
