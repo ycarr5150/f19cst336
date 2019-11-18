@@ -1,17 +1,16 @@
 var createError = require('http-errors');
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var express = require('express');
 var app = express();
-app.engine('html', require('ejs').renderFile); 
-app.use(express.static("public"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+app.engine('html', require('ejs').renderFile); 
+app.use(express.static("public"));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -22,6 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //////////////////////////////////////////////////////////////////////
 // ROUTING 
 //////////////////////////////////////////////////////////////////////
+
+// Setup MySQL admin routes
+// This will take the route /myadmin away from you!!!
+var mysqlAdmin = require('node-mysql-admin');
+app.use(mysqlAdmin(app));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var basicRouter = require('./routes/basic');
@@ -55,8 +60,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-// // server listener 
-// app.listen(process.env.PORT, process.env.IP, function() {
-//     console.log("Running Express Server..."); 
-// });
