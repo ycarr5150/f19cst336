@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 
-/* GET users listening. (/mysql) */
-router.get('/quotes', function(req, res, next) {
+/* GET users listening. (/) */
+router.get('/', function(req, res, next) {
     
     // GET A QUERY STRING VALUE FOR FILTER
     const nameFilter = req.query.name; 
@@ -24,7 +24,7 @@ router.get('/quotes', function(req, res, next) {
     `, function(error, results, fields) {
         if (error) throw error;
 
-        res.render('../public/labs/lab9_/view', {
+        res.render('../public/labs/lab9_quotes/view', {
             title: 'Lab 9', 
             quotes: results
         });
