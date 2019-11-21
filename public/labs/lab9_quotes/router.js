@@ -4,7 +4,6 @@ const mysql = require('mysql');
 
 /* GET users listening. (/) */
 router.get('/', function(req, res, next) {
-    
     // GET A QUERY STRING VALUE FOR FILTER
     const nameFilter = req.query.name; 
 
@@ -17,16 +16,28 @@ router.get('/', function(req, res, next) {
 
     connection.connect();
 
-    connection.query(`
-    SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
-    FROM l9_quotes q INNER JOIN 
-    l9_author a ON q.authorId = a.authorId
-    `, function(error, results, fields) {
-        if (error) throw error;
+    // connection.query(`
+    // SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
+    // FROM l9_quotes q INNER JOIN 
+    // l9_author a ON q.authorId = a.authorId
+    // `, function(error, results, fields) {
+    //     if (error) throw error;
 
+    //     res.render('../public/labs/lab9_quotes/view', {
+    //         title: 'Lab 9: Quotes Database', 
+    //         quotes: results, 
+    //     });
+    // });
+    
+    connection.query(
+    `SELECT category 
+    FROM l9_quotes
+    GROUP BY category`, function(error, results, fields) {
+        if (error) throw error; 
+        
         res.render('../public/labs/lab9_quotes/view', {
-            title: 'Lab 9', 
-            quotes: results
+            title: 'Lab9: Quotes Database', 
+            category: results
         });
     });
 
