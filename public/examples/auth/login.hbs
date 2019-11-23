@@ -289,7 +289,7 @@ input[type=text]:placeholder {
         <form>
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
             <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="submit" id="loginButton" class="fadeIn fourth" value="Log In">
             <div id="message" class="alert alert-danger hidden" role="alert">
                 This is a danger alert check! 
             </div>
@@ -304,30 +304,29 @@ input[type=text]:placeholder {
 </div>
 
 <script>
-    $(function() {
-        $("#message")
-        $("#loginButton").on("click", function(e) {
-        // do not submit until i am ready 
-        e.preventDefault(); 
-        
-        $.ajax({ 
-            type: "POST", 
-            url: "/auth/login", 
-            datatype: "json", 
-            contentType: "application/json", 
-            data: JSON.stringify({
-                "username": $("#login").val(), 
-                "password": $("#password").val()
-            }), 
-            success: function(data, status) {
-                console.log(); 
-                if(resule.successful) {
-                    window.location.href = '/auth/dashboard'; 
-                } else {
-                    $("#message").html(""); 
+    $(document).ready(function() {
+        $('#loginButton').on('click', function(e) {
+            e.preventDefault(); // Do not submit until I am ready
+    
+            $.ajax({
+                type: "POST",
+                url: "/auth/login",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "username": $("#login").val(),
+                    "password": $("#password").val()
+                }),
+                success: function(result, status) {
+                    if (result.result) {
+                        window.location.href = '/auth/dashboard'; // This will navigate to wherever i say...
+                    } else {
+                        // Show an error message or something and stay here
+                        $('#message').html(result.message).css("color", "red");
+                        $('#message').show();
+                    }
                 }
-            }
-        }); 
-    }
-    })(); 
+            });
+        });
+    });
 </script>

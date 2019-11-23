@@ -27,6 +27,7 @@ router.post('/login', function(req, res, next) {
     // Do something to login... 
     let successful = false; 
     let message = ''; 
+    
     if (req.body.username === 'hello' && req.body.password === 'world') {
         successful = true; 
         req.session.username = req.body.username; 
@@ -35,6 +36,7 @@ router.post('/login', function(req, res, next) {
         delete req.session.username; 
         message = 'Wrong username or password!' 
     }
+    console.log("success is...", successful); 
     
     // Return success or failure 
     res.json({
