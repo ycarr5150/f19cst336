@@ -40,7 +40,9 @@ var myauthRouter = require('./public/examples/auth/router');
 var proj4Router = require('./public/projects/project4/router');
 var lab7Router = require('./public/labs/lab7_pixabay/router');
 var lab9Router = require('./public/labs/lab9_quotes/router'); 
-var lab10Router = require('./public/labs/lab10_quotesAdmin/router'); 
+var lab10Router = require('./public/labs/lab10_quotesAdmin/router');
+var myfinalRouter = require('./public/final/router'); 
+
 
 // examples
 app.use('/', indexRouter);
@@ -54,6 +56,7 @@ app.use('/public/projects/project4', proj4Router);
 app.use('/labs/lab7_pixabay', lab7Router);
 app.use('/labs/lab9_quotes', lab9Router); 
 app.use('/labs/lab10_quotesAdmin', lab10Router);
+app.use('/scheduler', myfinalRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

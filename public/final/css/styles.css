@@ -1,0 +1,267 @@
+body {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    font-size: 16px;
+    font-family: "Proxima Nova Soft", serif;
+}
+
+p {
+    margin-left: 30px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#myBtn {
+    color: #56BAED;
+    text-decoration: underline; 
+    cursor: pointer;
+}
+
+footer {
+    font-size: 14px;
+    text-align: center;
+}
+
+#signUpButton,
+#logOutButton,
+#backButton, 
+#addApptButton, 
+#cancelButton {
+    float: right;
+    margin-right: 20px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+#deleteButton, 
+#detailsButton {
+    margin: 5px;
+    padding: 5px 15px;
+}
+
+#invitationLink {
+    width: 40%;
+    text-align: left;
+    height: 20px;
+    padding: 15px 10px;
+}
+
+#copyToClipboard {
+    font-size: 14px;
+}
+
+table {
+    margin-left: 20px;
+    border-collapse: collapse;
+    width: 97%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* FORM BOX */
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+}
+
+#formContent {
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* FADE INS */
+
+.fadeInDown {
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: #39ace7;
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+    transform: scale(0.95);
+}
+
+input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder {
+    color: #cccccc;
+}
+
+/* COPY TO CLIPBOARD */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.centerize {
+    text-align: center;
+}
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

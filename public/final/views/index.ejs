@@ -1,0 +1,59 @@
+<% include partials/header.ejs %>
+
+<input type="submit" id="signUpButton" class="button fadeIn" value="Sign Up"><br><br><br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Login Form -->
+        <form>
+            <input type="text" id="login" class="fadeIn" name="login" placeholder="Username">
+            <input type="text" id="password" class="fadeIn" name="password" placeholder="Password">
+            <input type="submit" id="loginButton" class="button fadeIn" value="Log In">
+        </form>
+    </div>
+    <span id="message"></span>
+</div><br><br>
+
+<script>
+    $("#loginButton").on("click", function(e) {
+        e.preventDefault(); // Do not submit until I am ready
+        
+        let username = $("#login").val(); 
+        let password = $("#password").val(); 
+        
+        if(username == "" || password == "") {
+            $("#message").html("Error, missing information above").css("color", "red"); 
+        } else {
+            // CREATE AN AJAX CALL TO VERIFY USERNAME AND PASSWORD 
+            $.ajax({
+                type: "POST",
+                url: "/scheduler/login",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "username": username,
+                    "password": password
+                }),
+                success: function(result, status) {
+                    if (result.successful) {
+                        window.location.href = '/scheduler/dashboard'; // This will navigate to wherever i say...
+                    }
+                    else {
+                        // Show an error message or something and stay here
+                        $('#message').html(result.message).css("color", "red");
+                        $('#message').show();
+                    }
+                },
+                error: function(xhr, status, message) {
+                    console.log("error: ", xhr.responseText);
+                }
+            });
+        }
+    }); 
+    
+    $("#signUpButton").on("click", function() {
+        window.location.href = '/scheduler/newuser'; 
+    }); 
+</script>
+
+<% include partials/footer.ejs %>

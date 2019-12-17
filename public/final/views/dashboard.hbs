@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Scheduler </title>
+        <link href="/final/css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <style>
+            body {
+                padding-top: 0px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- LOG OUT BUTTON -->
+        <input type="submit" id="logOutButton" class="button fadeIn" value="Log Out"><br><br><br>
+        
+        <!-- INVITATION LINK -->
+        <p>Invitation Link: <input type="text" id="invitationLink">
+            <button id="copyToClipboard">Copy Text</button>
+            <!--<div class="tooltip">-->
+            <!--    <button onclick="myFunction()" onmouseout="outFunc()">-->
+            <!--        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>-->
+            <!--        Copy Text-->
+            <!--    </button>-->
+            <!--</div>-->
+        </p>
+        
+        <!-- APPOINTMENT TIME SLOTS -->
+        <div class="timeSlots">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Booked By</th>
+                    <th><a id="myBtn">Add Multiple Time Slots</a></th>
+                </tr>
+                {{#each results}}
+                    <tr>
+                        <td>{{this.date}}</td>
+                        <td>{{this.start}}</td>
+                        <td>{{this.end}}</td>
+                        <td>{{this.booked}}</td>
+                        <td>
+                            <input type="submit" id="detailsButton" class="button" value="Details">
+                            <input type="submit" id="deleteButton" class="button" value="Delete">
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="centerize">
+                    <h3>Add Time Slot</h3><hr style="width:50%;">
+                    Date: <input type="date" id="apptDate"><br>
+                    Start Time: <input type="time" id="startTime"><br>
+                    End Time: <input type="time" id="endTime"><br>
+                    <input type="submit" id="addApptButton" style="width:100px;" class="button fadeIn" value="Add">
+                </div>
+                <span id="message" style="text-align:center;"></span>
+            </div>
+        </div>
+        
+        <br><br><hr>
+        <footer>
+                <br>CST336: Internet Programming<br>
+                &copy; 2019. Y. Carrillo<br>
+                Disclaimer: The information in this page might be inaccurate.<br>
+                It is used for academic purposes only.<br>
+        </footer>
+        
+        <script>
+            // BUTTONS 
+            $("#logOutButton").on("click", function() {
+                window.location.href = '/scheduler/login';
+            }); 
+            
+            $("#copyToClipboard").on("click", function() {
+                var copyText = document.getElementById("invitationLink");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+            }); 
+            
+            $("#addApptButton").on("click", function(e) {
+                // e.preventDefault(); // Do not submit until I am ready
+                let date = $("#apptDate").val(); 
+                let start = $("#startTime").val(); 
+                let end = $("#endTime").val(); 
+                
+                if(date == "" || start == "" || end == "") {
+                    $("#message").html("Error, missing information above").css("color", "red"); 
+                } else if(start > end) {
+                    $("#message").html("Start time is after end time").css("color", "red"); 
+                } else if(start == end) {
+                    $("#message").html("Start time matches end time").css("color", "red"); 
+                } else {
+                    $("#message").html(""); 
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/scheduler/dashboard",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            "date": date, 
+                            "start": start, 
+                            "end": end 
+                        }),
+                        success: function(result, status) {
+                            if (result.successful) {
+                                window.location.href = '/scheduler/dashboard'; // This will navigate to wherever i say...
+                            }
+                            else {
+                                // Show an error message or something and stay here
+                                $('#message').html(result.message).css("color", "red");
+                                $('#message').show();
+                            }
+                        },
+                        error: function(xhr, status, message) {
+                            console.log("error: ", xhr.responseText);
+                        }
+                    });
+                }
+                
+            });
+            
+            $("#detailsButton").on("click", function() {
+                console.log("ive been clicked!"); 
+            });
+            
+            $("#deleteButton").on("click", function() {
+                console.log("deletes been clicked!"); 
+            }); 
+            
+            // COPY TO CLIPBOARD - doesnt work 
+            function myFunction() {
+                var copyText = document.getElementById("invitationLink");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                  
+                var tooltip = document.getElementById("myTooltip");
+                tooltip.innerHTML = "Copied: " + copyText.value;
+            }
+        
+            function outFunc() {
+                var tooltip = document.getElementById("myTooltip");
+                tooltip.innerHTML = "Copy to clipboard";
+            }
+            
+            // MODAL 
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+            
+            btn.onclick = function() {
+                modal.style.display = "block";
+            };
+            
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+    </body>
+</html> 

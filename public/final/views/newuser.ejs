@@ -1,0 +1,67 @@
+<% include partials/header.ejs %>
+
+<input type="submit" id="backButton" class="button fadeIn" value="Back"><br><br><br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Sign Up Form -->
+        <form>
+            <input type="text" id="username" class="fadeIn" name="username" placeholder="Username">
+            <input type="text" id="password" class="fadeIn" name="password" placeholder="Password">
+            <input type="text" id="email" class="fadeIn" name="email" placeholder="Email">
+            <input type="text" id="fullname" class="fadeIn" name="fullname" placeholder="Full Name">
+            <input type="submit" id="newUserSubmit" class="button fadeIn" value="Submit">
+        </form>
+    </div>
+    <span id="message"></span>
+</div><br><br>
+
+<script>
+    $("#newUserSubmit").on("click", function(e){
+        e.preventDefault(); // Do not submit until I am ready
+        
+        let username = $("#username").val(); 
+        let password = $("#password").val(); 
+        let email = $("#email").val(); 
+        let fullname = $("#fullname").val(); 
+        
+        if(username == "" || password == "" || email == "" || fullname == "") {
+            $("#message").html("Error, all information above required").css("color", "red"); 
+        } else {
+            $("#message").html(""); 
+            
+            // CREATE AN AJAX CALL TO CREATE NEW USER 
+            $.ajax({
+                type: "POST",
+                url: "/scheduler/newuser",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "username": username,
+                    "password": password, 
+                    "email": email, 
+                    "fullname": fullname
+                }),
+                success: function(result, status) {
+                    if (result.successful) {
+                        window.location.href = '/scheduler/dashboard'; // This will navigate to wherever i say...
+                    }
+                    else {
+                        // Show an error message or something and stay here
+                        $('#message').html(result.message).css("color", "red");
+                        $('#message').show();
+                    }
+                },
+                error: function(xhr, status, message) {
+                    console.log("error: ", xhr.responseText);
+                }
+            });
+        }
+    }); 
+    
+    $("#backButton").on("click", function() {
+        window.location.href = '/scheduler/login';
+    }); 
+</script>
+
+<% include partials/footer.ejs %>

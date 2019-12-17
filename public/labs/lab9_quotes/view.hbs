@@ -1,47 +1,28 @@
 <h1>{{title}}</h1>
 <hr />
-<!-- USE BOOTSTRAP FLEXBOX INSTEAD OF TABLES --> 
+<!-- USE BOOTSTRAP FLEXBOX INSTEAD OF TABLES -->
 
 <h3>Search Menu</h3>
 
 <p>Keyword: <input type="text" id="keyword"> </p>
-<p>Category: 
+<p>Category:
     <select id="category">
         <option value="">Select One</option>
-        {{#each category}}
-            <option value=`{{category}}`>{{category}}</option>
+        {{#each results}}
+            <option value=`{{results.category}}`>{{results.category}}</option>
         {{/each}} 
     </select>
 </p>
-<p>Author Name: 
+<p>Author Name:
     <select id="authorName">
         <option value="">Select One</option>
     </select>
 </p>
 <p>Author's Gender:<br>
-    <input type="radio" name="gender" id="male" value="male"> 
+    <input type="radio" name="gender" id="male" value="male">
     <label for="male">Male</label>
-    <input type="radio" name="gender" id="female" value="female"> 
+    <input type="radio" name="gender" id="female" value="female">
     <label for="female">Female</label>
 </p>
 
 <input type="submit" value="Submit"><br><br>
-
-{{!--<table>--}}
-{{!--    <thead>--}}
-{{!--        <tr>--}}
-{{!--            <th>Quote</th>--}}
-{{!--            <th>Author</th>--}}
-{{!--        </tr>--}}
-{{!--    </thead>--}}
-        
-{{!--    <tbody>--}}
-{{!--        {{#each quotes}}--}}
-{{!--            <tr>--}}
-{{!--                <td>{{quote}}</td>--}}
-{{!--                <td>{{fullName}}</td>--}}
-{{!--            </tr>--}}
-{{!--        {{/each}} --}}
-{{!--    </tbody>--}}
-        
-{{!--</table>--}}
