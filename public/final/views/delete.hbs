@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Scheduler </title>
+        <link href="/final/css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <style>
+            body {
+                margin-top: 0px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <input type="submit" id="backButton" class="button fadeIn" value="Back"><br><br><br>
+        
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                {{#each result}}
+                    Date: <input type="text" value={{this.date}} id="date">
+                    Start: <input type="text" value={{this.start}} id="start">
+                    End: <input type="text" value={{this.end}} id="end">
+                {{/each}} 
+                <input type="submit" id="deleteButton" class="button" value="Are you sure you want to delete?" >
+            </div>
+            <span id="message"></span>
+        </div><br><br>
+        
+        <br><br><hr>
+        <footer>
+                <br>CST336: Internet Programming<br>
+                &copy; 2019. Y. Carrillo<br>
+                Disclaimer: The information in this page might be inaccurate.<br>
+                It is used for academic purposes only.<br>
+        </footer>
+        
+        <script>
+            $("#backButton").on("click", function() {
+               window.location.href = '/scheduler/dashboard'; 
+            });
+            
+            $("#deleteButton").on("click", function() {
+                console.log($("#date").val()); 
+                
+                $.ajax({
+                    type: "POST",
+                    url: "/scheduler/delete",
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "date": $("#date").val(), 
+                        "start": $("#start").val()
+                    }),
+                    success: function(result, status) {
+                        if (result.successful) {
+                            window.location.href = '/scheduler/dashboard'; // This will navigate to wherever i say...
+                        }
+                        else {
+                            // Show an error message or something and stay here
+                            $('#message').html(result.message).css("color", "red");
+                            $('#message').show();
+                        }
+                    },
+                    error: function(xhr, status, message) {
+                        console.log("error: ", xhr.responseText);
+                    }
+                });
+            }); 
+        </script>
+    </body>
+</html> 

@@ -40,7 +40,9 @@
                         <td>{{this.booked}}</td>
                         <td>
                             <input type="submit" id="detailsButton" class="button" value="Details">
-                            <input type="submit" id="deleteButton" class="button" value="Delete">
+                            <a href=/scheduler/delete?id={{this.date}}{{this.start}}>
+                                <input type="submit" id="deleteButton" class="button" value="Delete" >
+                            </a>
                         </td>
                     </tr>
                 {{/each}}

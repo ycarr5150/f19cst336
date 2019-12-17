@@ -151,7 +151,7 @@ router.post("/dashboard", function(req, res, next) {
                         connection.end(); 
                         res.json({
                             successful: true 
-                        })
+                        }); 
                 });
             } else {
                 connection.end(); 
@@ -159,9 +159,65 @@ router.post("/dashboard", function(req, res, next) {
                 res.json({
                     successful: false, 
                     message: "Time already created"
-                })
+                }); 
             }
     });
 });
+
+router.get('/delete', (req, res, next) => {
+    if (!req.query.id || req.query.id.length === 0) {
+        return next(new Error("There is a problem"));
+    } else {
+        let id = req.query.id; 
+        let date = id.substr(0, 10); 
+        let time = id.substr(10, 5); 
+        
+        const connection = mysql.createConnection({
+            host: 'if0ck476y7axojpg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+            user: 'gwmjra9ipxh2mmvx',
+            password: 'pg64c5vi0g4loqpx',
+            database: 'xc7tbl3qik69dioa'
+        });
+    
+        connection.connect();
+        
+        connection.query(
+            `SELECT * FROM final_appointments
+            WHERE username = '${req.session.username}' and date = '${date}' and start = '${time}'`, 
+            function(error, results, fields) {
+                if (error) throw error; 
+                connection.end(); 
+                
+                res.render("../public/final/views/delete.hbs", {
+                    result: results 
+                });
+        }); 
+    }
+}); 
+
+router.post("/delete", function(req, res, next) {
+    const connection = mysql.createConnection({
+        host: 'if0ck476y7axojpg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'gwmjra9ipxh2mmvx',
+        password: 'pg64c5vi0g4loqpx',
+        database: 'xc7tbl3qik69dioa'
+    });
+    
+    connection.connect();
+    console.log(req.body.date); 
+    console.log(req.body.start); 
+    
+    connection.query(
+        `DELETE FROM final_appointments
+        WHERE username = '${req.session.username}' and date = '${req.body.date}' and start = '${req.body.start}'`, 
+        function(error, results, fields) {
+            if(error) throw error; 
+            
+            connection.end(); 
+            res.json({
+                successful: true
+            }); 
+    }); 
+}); 
 
 module.exports = router;

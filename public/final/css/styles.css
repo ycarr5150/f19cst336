@@ -35,7 +35,8 @@ footer {
 }
 
 #deleteButton, 
-#detailsButton {
+#detailsButton, 
+#cancelButton {
     margin: 5px;
     padding: 5px 15px;
 }
