@@ -40,14 +40,16 @@ footer {
     padding: 5px 15px;
 }
 
-#invitationLink {
+#invitationLink, 
+#deleteIndex{
     width: 40%;
     text-align: left;
     height: 20px;
     padding: 15px 10px;
 }
 
-#copyToClipboard {
+#copyToClipboard, 
+#deleteButton1{
     font-size: 14px;
 }
 
@@ -222,7 +224,7 @@ input[type=text]:placeholder {
 /* MODAL */
 
 /* The Modal (background) */
-.modal {
+.modal, .modal1 {
     display: none;
     position: fixed;
     z-index: 1;
@@ -238,7 +240,7 @@ input[type=text]:placeholder {
 
 /* Modal Content */
 
-.modal-content {
+.modal-content, .modal-content1 {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -252,7 +254,7 @@ input[type=text]:placeholder {
 
 /* The Close Button */
 
-.close {
+.close, .close1 {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -260,7 +262,9 @@ input[type=text]:placeholder {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.close1:hover,
+.close1:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;

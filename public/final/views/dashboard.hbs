@@ -20,12 +20,6 @@
         <!-- INVITATION LINK -->
         <p>Invitation Link: <input type="text" id="invitationLink">
             <button id="copyToClipboard">Copy Text</button>
-            <!--<div class="tooltip">-->
-            <!--    <button onclick="myFunction()" onmouseout="outFunc()">-->
-            <!--        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>-->
-            <!--        Copy Text-->
-            <!--    </button>-->
-            <!--</div>-->
         </p>
         
         <!-- APPOINTMENT TIME SLOTS -->
@@ -36,7 +30,7 @@
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Booked By</th>
-                    <th><a id="myBtn">Add Multiple Time Slots</a></th>
+                    <th><a id="myBtn">Add Time Slot</a></th>
                 </tr>
                 {{#each results}}
                     <tr>
@@ -77,6 +71,12 @@
         </footer>
         
         <script>
+            $(document).ready(function() {
+                var url = new URL(window.location);
+                console.log(url.href);  
+                $("#invitationLink").val(url); 
+            });
+        
             // BUTTONS 
             $("#logOutButton").on("click", function() {
                 window.location.href = '/scheduler/login';
@@ -131,14 +131,6 @@
                 }
                 
             });
-            
-            $("#detailsButton").on("click", function() {
-                console.log("ive been clicked!"); 
-            });
-            
-            $("#deleteButton").on("click", function() {
-                console.log("deletes been clicked!"); 
-            }); 
             
             // COPY TO CLIPBOARD - doesnt work 
             function myFunction() {
